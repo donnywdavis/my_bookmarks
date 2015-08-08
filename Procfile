@@ -1,0 +1,1 @@
+web gunicorm my_bookmarks.wsgi

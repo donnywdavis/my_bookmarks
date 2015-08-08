@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '0hmkia#iid**bb2@%z^w%a31^k0&hm&-wky_+0$%ur05!97x&+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -111,3 +111,13 @@ LOGOUT_URL = 'my_bookmarks_logout'
 LOGIN_REDIRECT_URL = 'bookmark_list'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+import dj_database_url
+DATABASES['default'] = dj_database_url.config()
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+try:
+    from .local_settings import *
+except ImportError:
+    pass

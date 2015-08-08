@@ -107,3 +107,4 @@ docs/_build/
 target/
 
 *.sqlite3
+/my_bookmarks/local_settings.py
